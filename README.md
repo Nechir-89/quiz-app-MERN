@@ -1,2 +1,2 @@
-# quiz-app-MERN
-this is a quiz application with Node.js and React.js
+# Quiz App
+This is a quiz application with MERN stack
