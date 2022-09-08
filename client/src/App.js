@@ -6,11 +6,11 @@ function App() {
   return (
     <>
       <header className="App">
-        app Header
+        {/* app Header */}
       </header>
         <Outlet />
       <footer>
-        app footer
+        {/* app footer */}
       </footer>
     </>
   );
