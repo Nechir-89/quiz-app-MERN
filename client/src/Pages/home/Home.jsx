@@ -1,3 +1,7 @@
+// Todo:
+// try to handle multiple updater with useReducer hook
+
+
 import { getAllData } from '../../data/quiz';
 import { useState, useEffect } from 'react';
 
@@ -7,6 +11,7 @@ export default function Home() {
     data: null
   });
   const [index, setIndex] = useState(0);
+  const [finished, setFinished] = useState(false);
 
   // because I don't allways know question id to handle next event
   // so I'm depending on array index
@@ -25,10 +30,14 @@ export default function Home() {
   }, []);
 
   const handleNext = () => {
-
+    (questions.data.length - 1) > index ?
+      setIndex(prev => prev + 1) : setFinished(true);
   }
-  console.log(questions.ready)
+
+  console.log(questions.ready);
   console.log(questions.data);
+  console.log(finished);
+
   return (
     <>
       {
@@ -36,7 +45,7 @@ export default function Home() {
           : questions.data.length === 0 ? <div>No questions available!</div>
             : <main>
               <article>
-                <h3>Question {questions.data[index].id}/8</h3>
+                <h3>Question {index + 1}/8</h3>
                 <p>{questions.data[index].question}</p>
               </article>
               <section>
