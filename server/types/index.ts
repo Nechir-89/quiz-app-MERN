@@ -1,7 +1,7 @@
 interface question {
   id: number;
   question: string;
-  answers: [string];
+  answers: string [];
   correct: number;
 }
 
