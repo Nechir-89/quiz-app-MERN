@@ -51,5 +51,5 @@ let data: question[] = [
   }
 ]
 
-export const getAllData = () => data;
+export const getAllData = (): question[] => data;
 export const getQuestion = (id: number) => data.find(q => q.id === id);

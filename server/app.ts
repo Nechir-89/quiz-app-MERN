@@ -1,12 +1,14 @@
 import express, { Express } from "express";
-import { getAllData } from "./data";
+// import { getAllData } from "./data";
+import router from "./routes/index";
 const app: Express = express();
 
 
-app.use('/api/questions', (req, res) => {
-  res.status(200);
-  res.json(getAllData());
-})
+// app.use('/api/questions', (req, res) => {
+//   res.status(200);
+//   res.json(getAllData());
+// });
+
 // app.get('/', (req, res) => {
 //   res.send("Hello client");
 // });
@@ -18,6 +20,8 @@ app.use('/api/questions', (req, res) => {
 // });
 
 app.use('/static', express.static('./public'))
+
+app.use(router)
 
 const port: string = process.env.PORT || "8000";
 app.listen(port, () => {
