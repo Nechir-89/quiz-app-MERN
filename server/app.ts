@@ -1,6 +1,8 @@
 import express, { Express } from "express";
 // import { getAllData } from "./data";
 import router from "./routes/index";
+import cors from 'cors';
+
 const app: Express = express();
 
 
@@ -20,8 +22,8 @@ const app: Express = express();
 // });
 
 app.use('/static', express.static('./public'))
-
-app.use(router)
+app.use(cors());
+app.use(router);
 
 const port: string = process.env.PORT || "8000";
 app.listen(port, () => {
