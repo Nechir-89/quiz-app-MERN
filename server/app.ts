@@ -2,6 +2,7 @@ import express, { Express } from "express";
 // import { getAllData } from "./data";
 import router from "./routes/index";
 import cors from 'cors';
+import { corsOptions } from "./config/corsOptions";
 
 const app: Express = express();
 
@@ -21,8 +22,9 @@ const app: Express = express();
 //   res.send("Post user request");
 // });
 
-app.use('/static', express.static('./public'))
-app.use(cors());
+app.use('/static', express.static('./public'));
+
+app.use(cors(corsOptions));
 app.use(router);
 
 const port: string = process.env.PORT || "8000";
