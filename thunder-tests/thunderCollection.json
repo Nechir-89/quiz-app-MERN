@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "b34da76b-199e-4c7d-999a-a8c81262e5b5",
+    "colName": "quetions",
+    "created": "2022-09-23T20:32:57.768Z",
+    "sortNum": 10000,
+    "folders": []
+  },
+  {
+    "_id": "f1d9f702-ab40-4ffc-add5-7ee7034d1d23",
+    "colName": "static",
+    "created": "2022-09-23T20:35:56.117Z",
+    "sortNum": 20000,
+    "folders": []
+  }
+]

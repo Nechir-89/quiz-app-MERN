@@ -7,12 +7,12 @@ const allowedList: string[] = [
 
 
 const corsOptions: CorsOptions = {
-  origin: (origin: string, callback: any) => {
-    allowedList.includes(origin) || !origin ?
-      callback(null, true)
-      :
-      callback(new Error('Not allowed by CORS'));
-  },
+  // origin: (origin: string, callback: any) => {
+  //   allowedList.includes(origin) || !origin ?
+  //     callback(null, true)
+  //     :
+  //     callback(new Error('Not allowed by CORS'));
+  // },
   optionsSuccessStatus: 200
 }
 
