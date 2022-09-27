@@ -22,7 +22,8 @@ const app: Express = express();
 //   res.send("Post user request");
 // });
 
-app.use('/static', express.static('./public'));
+// testing routes
+app.use('static', express.static('./public'));
 
 app.use(cors(corsOptions));
 app.use(router);
