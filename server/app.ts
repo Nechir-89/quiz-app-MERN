@@ -23,12 +23,12 @@ const app: Express = express();
 // });
 
 // testing routes
-app.use('static', express.static('./public'));
+app.use('/static', express.static('./public'));
 
 app.use(cors(corsOptions));
 app.use(router);
 
-const port: string = process.env.PORT || "8000";
+const port: string = process.env.PORT || "3001";
 app.listen(port, () => {
   console.log(`Application is ready to serve on port ${port}`);
 })
