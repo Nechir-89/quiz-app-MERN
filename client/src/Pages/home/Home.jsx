@@ -26,7 +26,11 @@ export default function Home() {
     const fetchData = async () => {
       await axios.get('/api/questions')
         .then(resp => setQuestions({ ready: true, data: resp.data })
-        )
+          .catch(err => {
+            console.log(err);
+            setQuestions({ ready: true, data: [] });
+          })
+        );
     };
     fetchData();
 
