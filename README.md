@@ -5,7 +5,7 @@ Quiz app is designed and developed for anyone who wants to take a test in the fo
 - CSS
 - JS
 
-For this app I use MERN stack:
+For this app I'm using MERN stack with Typescript:
 - MangoDB
 - Express
 - ReactJS
