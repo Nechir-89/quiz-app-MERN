@@ -1,9 +1,8 @@
 // Todo:
 // try to handle multiple updater with useReducer hook
 
-
-import { getAllData } from '../../data/quiz';
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 
 export default function Home() {
   const [questions, setQuestions] = useState({
@@ -24,8 +23,12 @@ export default function Home() {
     // setQuestions(getAllData()); 
     // console.log(questions); 
     // setReady(true); 
-
-    setQuestions({ ready: true, data: getAllData() });
+    const fetchData = async () => {
+      await axios.get('/api/questions')
+        .then(resp => setQuestions({ ready: true, data: resp.data })
+        )
+    };
+    fetchData();
 
   }, []);
 
