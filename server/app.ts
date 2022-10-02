@@ -26,7 +26,8 @@ const app: Express = express();
 app.use('/static', express.static('./public'));
 
 app.use(cors(corsOptions));
-app.use(router);
+// HTTP APIs
+app.use('/api',router);
 
 const port: string = process.env.PORT || "3001";
 app.listen(port, () => {

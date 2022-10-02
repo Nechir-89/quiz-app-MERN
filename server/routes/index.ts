@@ -3,6 +3,6 @@ import questionRouter from './questions-router'
 
 const router: Router = Router();
 
-router.use('/api/questions', questionRouter);
+router.use('/questions', questionRouter);
 
 export default router;
