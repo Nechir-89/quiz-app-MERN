@@ -56,5 +56,8 @@ const data: HTMLQuetions[] = [
 // }
 
 // const getHtmlQuesions: HTMLQuetions[] = () => { return data };
-const getHtmlQuesions = () => data;
-const getHtmlQuesion = (id: number) => data.filter(q => q.id === id);
+export const getHtmlQuesions = (): HTMLQuetions[] => data;
+// export function getHtmlQuesion(id: number): HTMLQuetions | undefined {
+//   return data.find(q => q.id === id);
+// }
+export const getHtmlQuesion = (id: number): HTMLQuetions | undefined => data.find(q => q.id === id);
