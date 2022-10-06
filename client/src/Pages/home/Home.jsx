@@ -25,13 +25,12 @@ export default function Home() {
     // setReady(true); 
     const fetchData = async () => {
       await axios.get('/api/questions')
-        .then(resp => setQuestions({ ready: true, data: resp.data })
-          .catch(err => {
-            console.log(err);
-            setQuestions({ ready: true, data: [] });
-          })
-        );
-    };
+        .then(resp => setQuestions({ ready: true, data: resp.data }))
+        .catch(err => {
+          console.log(err);
+          setQuestions({ ready: true, data: [] });
+        })
+    }
     fetchData();
 
   }, []);
@@ -41,15 +40,15 @@ export default function Home() {
       setIndex(prev => prev + 1) : setFinished(true);
   }
 
-  console.log(questions.ready);
-  console.log(questions.data);
-  console.log(finished);
+  // console.log(questions.ready);
+  // console.log(questions.data);
+  // console.log(finished);
 
   return (
     <>
       {
         !questions.ready ? <div>Loading Questions...</div>
-          : questions.data.length === 0 ? <div>No questions available!</div>
+          : questions.data.length === 0 ? <div>No questions available now!</div>
             : <main>
               <article>
                 <h3>Question {index + 1}/8</h3>
