@@ -18,23 +18,24 @@ export default function Home() {
   // assigning a variable with let inside useEffect hook gets unexpected value
 
   // multiple updater inside useEffect hook gets unexpected state update
-
+  
+  const fetchData = async () => {
+    await axios.get('/api/questions')
+      .then(resp => setQuestions({ ready: true, data: resp.data }))
+      .catch(err => {
+        console.log(err);
+        setQuestions({ ready: true, data: [] });
+      })
+  }
+  
   useEffect(() => {
     // setQuestions(getAllData()); 
     // console.log(questions); 
     // setReady(true); 
-    const fetchData = async () => {
-      await axios.get('/api/questions')
-        .then(resp => setQuestions({ ready: true, data: resp.data }))
-        .catch(err => {
-          console.log(err);
-          setQuestions({ ready: true, data: [] });
-        })
-    }
     fetchData();
-
+    
   }, []);
-
+  
   const handleNext = () => {
     (questions.data.length - 1) > index ?
       setIndex(prev => prev + 1) : setFinished(true);
