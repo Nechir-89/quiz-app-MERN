@@ -3,9 +3,12 @@ import express, { Express } from "express";
 import router from "./routes/index";
 import cors from 'cors';
 import { corsOptions } from "./config/corsOptions";
+import dbConnect from "./config/dbConnect";
+require('dotenv').config()
+
 
 const app: Express = express();
-
+dbConnect();
 
 // app.use('/api/questions', (req, res) => {
 //   res.status(200);
