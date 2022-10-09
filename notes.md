@@ -34,3 +34,16 @@ https://www.mongodb.com/docs/manual/reference/limits/#naming-restrictions
 
 free tier for each clustor is 512MB 
 this can hold up to 125000 records with 4 fields of data
+
+
+to ignore a file from pushing to github
+- add file name in .gitignore file
+however things may get harder when there is a file pushed to github 
+and just want to stop tracking changes from it, in that case we must run 
+git rm --cached filename
+
+- probably i need to delete some commites so I remove .env from history.
+- connecting mongodb with mongodb extension within vs code.
+
+
+
