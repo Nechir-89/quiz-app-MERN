@@ -3,3 +3,7 @@ node_modules
 # Environments
 .env
 server/.env
+
+
+# thunder client
+thunder-tests/thunderActivity.json
