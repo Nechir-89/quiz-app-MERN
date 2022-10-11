@@ -4,6 +4,7 @@ import router from "./routes/index";
 import cors from 'cors';
 import { corsOptions } from "./config/corsOptions";
 import dbConnect from "./config/dbConnect";
+import mongoose from "mongoose";
 require('dotenv').config()
 
 
@@ -33,6 +34,11 @@ app.use(cors(corsOptions));
 app.use('/api', router);
 
 const port: string = process.env.PORT || "3001";
-app.listen(port, () => {
-  console.log(`Application is ready to serve on port ${port}`);
+
+mongoose.connection.once('open', ()=>{
+  console.log(`Connected to ${process.env.db_name} DB.`);
+  app.listen(port, () => {
+    console.log(`Application is ready to serve on port ${port}`);
+  })
 })
+

@@ -45,5 +45,7 @@ git rm --cached filename
 - probably i need to delete some commites so I remove .env from history.
 - connecting mongodb with mongodb extension within vs code.
 
+-----
+use ES module to import dotenv
 
 
