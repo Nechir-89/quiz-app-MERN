@@ -8,4 +8,4 @@ const questionSchema = new Schema({
   correct: Number
 })
 
-export default mongoose.model('question', questionSchema);
+export default mongoose.model('cssQuestions', questionSchema);
