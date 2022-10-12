@@ -1,6 +1,7 @@
 import { RequestHandler } from "express"
 import { question } from "../types"
-import cssQuestions from "../model/question";
+import cssQuestions from "../model/cssquestions";
+import { getCssQuestions } from "../services/cssQuestionsService";
 
 const getAllQuetions: RequestHandler<
   never,
@@ -9,9 +10,12 @@ const getAllQuetions: RequestHandler<
   never
 > = async (req, res) => {
   try {
-    const allQuestions = await cssQuestions.find().exec();
-    console.log(allQuestions)
+    const cssQuestions = await getCssQuestions();
+    console.log(cssQuestions)
     res.status(200);
+    // TODO: add types for data to be retrieved 
+    // TODO: change file name any where that needs to indicate css
+
     // res.send(getAllData());
   } catch (error: any) {
     res.status(500).send({ err: error.message });
