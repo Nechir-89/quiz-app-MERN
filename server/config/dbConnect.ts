@@ -9,6 +9,7 @@ const dbConnect = async () => {
       useUnifiedTopology: true
     })
     );
+    console.log("connected!");
 
     // {
     //   useNewUrlParser: true,

@@ -8,8 +8,8 @@ lessons:
 
 Todo Backend:
 - create NoSQL database in mangoDB (done)
-- connect to mangodb from ExpressJS
-- fetch data from mangoDB
+- connect to mangodb from ExpressJS (done)
+- fetch data from mangoDB (done)
 - update service to respond frontend with database data instead of hardcoded data
 
 Todo frontend:
@@ -21,7 +21,7 @@ Todo frontend:
 
 
 
-mangoDB name restrictions
+mangoDB database name restrictions
 https://www.mongodb.com/docs/manual/reference/limits/#naming-restrictions
 - camel case accepted
 - size of a recored of 4 fields can be about 4KBs

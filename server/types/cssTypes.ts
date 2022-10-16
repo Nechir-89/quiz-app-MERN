@@ -1,5 +1,5 @@
 export interface question {
-  id: number;
+  _id: any;
   question: string;
   answers: string [];
   correct: number;

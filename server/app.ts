@@ -7,8 +7,8 @@ import dbConnect from "./config/dbConnect";
 import mongoose from "mongoose";
 require('dotenv').config()
 
-
 const app: Express = express();
+// connect to monogoDB
 dbConnect();
 
 // app.use('/api/questions', (req, res) => {
@@ -41,4 +41,3 @@ mongoose.connection.once('open', ()=>{
     console.log(`Application is ready to serve on port ${port}`);
   })
 })
-

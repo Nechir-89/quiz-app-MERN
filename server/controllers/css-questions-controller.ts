@@ -1,7 +1,7 @@
 import { RequestHandler } from "express"
-import { question } from "../types"
-import cssQuestions from "../model/cssquestions";
-import { getCssQuestions } from "../services/cssQuestionsService";
+import { question } from "../types/cssTypes"
+import { getCssQuestions } from "../services/css-questions-service";
+import mongoose from "mongoose";
 
 const getAllQuetions: RequestHandler<
   never,
@@ -12,7 +12,7 @@ const getAllQuetions: RequestHandler<
   try {
     const cssQuestions = await getCssQuestions();
     console.log(cssQuestions)
-    res.status(200);
+    // res.status(200).send(cssQuestions);
     // TODO: add types for data to be retrieved 
     // TODO: change file name any where that needs to indicate css
 
