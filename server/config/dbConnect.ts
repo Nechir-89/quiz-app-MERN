@@ -1,16 +1,25 @@
 import mongoose from "mongoose";
 
 const dbConnect = async () => {
-  const uri: string = process.env.Database_URI || "";
+
   try {
-    await mongoose.connect(uri, () => ({
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true
-    })
+    await mongoose.connect(`${process.env.Database_URI}`, () => {
+      return {
+        useNewUrlParser: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
+      }
+    }
     );
     console.log("connected!");
 
+    // {
+    //   dbName: 'questions',
+    //   user: "neck",
+    //   pass: "gOh7boylCxJIG8Sd"
+    // }, (error: any) => {
+    //   console.log(error);
+    // }
     // {
     //   useNewUrlParser: true,
     //   useFindAndModify: false,
