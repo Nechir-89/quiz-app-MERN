@@ -15,3 +15,6 @@ if you want to add your changes pleas make a pull request for the available issu
 
 ### Testing APIs
 Thunder client vs code extension is used in this project to test APIa and save them for teams, to see tests you're expected to have thunder client extension.
+
+### Resources
+- 
