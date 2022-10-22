@@ -3,9 +3,7 @@ import cssQuestions from "../model/cssquestions";
 
 const getCssQuestions = async () => {
   try {
-    const data = await cssQuestions.find((err, question) => {
-      console.log(question)
-    });
+    const data = await cssQuestions.find().exec();
     // const questions = data.map((item: question) => item);
     return data;
   } catch (error) {

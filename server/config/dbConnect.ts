@@ -4,8 +4,6 @@ const dbConnect = async () => {
   
   try {
     await mongoose.connect(`${process.env.Database_URI}`);
-    console.log("connected!");
-
     // {
     //   dbName: 'questions',
     //   user: "neck",

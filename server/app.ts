@@ -5,7 +5,7 @@ import cors from 'cors';
 import { corsOptions } from "./config/corsOptions";
 import dbConnect from "./config/dbConnect";
 import mongoose from "mongoose";
-require('dotenv').config()
+require('dotenv').config();
 
 const app: Express = express();
 // connect to monogoDB
@@ -35,7 +35,7 @@ app.use('/api', router);
 
 const port: string = process.env.PORT || "3001";
 
-mongoose.connection.once('open', ()=>{
+mongoose.connection.once('open', () => {
   console.log(`Connected to ${process.env.db_name} DB.`);
   app.listen(port, () => {
     console.log(`Application is ready to serve on port ${port}`);

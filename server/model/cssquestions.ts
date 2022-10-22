@@ -9,4 +9,4 @@ const cssQuestionSchema = new Schema({
   correct: { type: Number, required: true }
 })
 
-export default mongoose.model('cssQuestions', cssQuestionSchema);
+export default mongoose.model('cssquestion', cssQuestionSchema);
