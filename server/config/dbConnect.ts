@@ -1,16 +1,9 @@
 import mongoose from "mongoose";
 
 const dbConnect = async () => {
-
+  
   try {
-    await mongoose.connect(`${process.env.Database_URI}`, () => {
-      return {
-        useNewUrlParser: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true
-      }
-    }
-    );
+    await mongoose.connect(`${process.env.Database_URI}`);
     console.log("connected!");
 
     // {
