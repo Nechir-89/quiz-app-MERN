@@ -1,6 +1,8 @@
-export interface question {
-  _id: any;
+import { Document, Schema } from "mongoose";
+
+export interface Question extends Document {
+  _id: Schema.Types.ObjectId,
   question: string;
-  answers: string [];
+  answers: string[];
   correct: number;
 }

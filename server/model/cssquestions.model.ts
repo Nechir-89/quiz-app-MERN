@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Question } from "../types/cssTypes";
 const { Schema } = mongoose;
 
 
@@ -9,4 +10,4 @@ const cssQuestionSchema = new Schema({
   correct: { type: Number, required: true }
 })
 
-export default mongoose.model('cssquestion', cssQuestionSchema);
+export default mongoose.model<Question>('cssquestion', cssQuestionSchema);

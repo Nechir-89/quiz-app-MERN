@@ -1,11 +1,11 @@
 import { RequestHandler } from "express"
-import { question } from "../types/cssTypes"
+import { Question } from "../types/cssTypes"
 import { getCssQuestions } from "../services/css-questions-service";
 import mongoose from "mongoose";
 
 const getAllQuetions: RequestHandler<
   never,
-  question[] | { err: string },
+  Question[] | { err: string }, //response
   never,
   never
 > = async (req, res) => {
@@ -16,7 +16,7 @@ const getAllQuetions: RequestHandler<
     // TODO: add types for data to be retrieved 
     // TODO: change file name any where that needs to indicate css
 
-    // res.send(getAllData());
+    res.send(cssQuestions);
   } catch (error: any) {
     res.status(500).send({ err: error.message });
   }
