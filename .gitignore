@@ -4,6 +4,8 @@ node_modules
 .env
 server/.env
 
-
 # thunder client
 thunder-tests/thunderActivity.json
+
+#notes
+notes.md
