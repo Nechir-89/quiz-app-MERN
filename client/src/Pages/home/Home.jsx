@@ -2,7 +2,8 @@
 // try to handle multiple updater with useReducer hook
 
 import { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import './home-style.css';
 
 export default function Home() {
   const [questions, setQuestions] = useState({
@@ -18,27 +19,27 @@ export default function Home() {
   // assigning a variable with let inside useEffect hook gets unexpected value
 
   // multiple updater inside useEffect hook gets unexpected state update
-  
+
   const fetchData = async () => {
-    await axios.get('/api/questions')
+    await axios.get('/api/css-questions')
       .then(resp => setQuestions({ ready: true, data: resp.data }))
       .catch(err => {
         console.log(err);
         setQuestions({ ready: true, data: [] });
       })
   }
-  
+
   useEffect(() => {
     // setQuestions(getAllData()); 
     // console.log(questions); 
     // setReady(true); 
     fetchData();
-    
+
   }, []);
-  
+
   const handleNext = () => {
-    (questions.data.length - 1) > index ?
-      setIndex(prev => prev + 1) : setFinished(true);
+    let size = questions.data.length - 1; // length of array
+    size > index ? setIndex(prev => prev + 1) : setFinished(true);
   }
 
   // console.log(questions.ready);
