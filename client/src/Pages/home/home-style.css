@@ -25,3 +25,16 @@ article > p{
   margin-top: 0px;
   padding: 2px 8px;
 }
+
+
+section{
+  counter-reset: answers-list;
+}
+
+section > div{
+  counter-increment: answers-list;
+  /* counter-set: answers-list "A"; */
+}
+section > div::before{
+  content: counter(answers-list, upper-alpha);
+}

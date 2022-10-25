@@ -61,7 +61,7 @@ export default function Home() {
                   questions.data[index].answers.map((answer, ind) =>
                     <div className='answer' key={ind}>
                       {/* use counterReset to set list order A, B, C, D */}
-                      <p>{answer}</p>
+                      {answer}
                     </div>
                   )
                 }
