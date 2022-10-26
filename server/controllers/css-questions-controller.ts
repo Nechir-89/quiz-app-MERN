@@ -11,7 +11,7 @@ const getAllQuetions: RequestHandler<
 > = async (req, res) => {
   try {
     const cssQuestions = await getCssQuestions();
-    console.log(cssQuestions)
+    // console.log(cssQuestions)
     // res.status(200).send(cssQuestions);
     // TODO: add types for data to be retrieved 
     // TODO: change file name any where that needs to indicate css
