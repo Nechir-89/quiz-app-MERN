@@ -1,49 +1,62 @@
-:root{
-  --blue-level-1: #0094da;
-  --blue-level-2: #0084da;
-  --white-level-1: #FEFEFE;
-}
-main{
+main {
   margin: 2rem 1rem;
 }
-article{
+
+article {
   background-color: var(--blue-level-1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 4px;
 }
 
-article > h3{
+article>h3 {
   background-color: var(--white-level-1);
   display: inline-block;
   padding: 4px 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 
-article > p{
+article>p {
   color: var(--white-level-1);
   text-align: center;
   margin-top: 0px;
   padding: 2px 8px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 
-section{
+section {
   counter-reset: answers-list;
   /* display: flex; */
   /* flex-direction: column; */
 }
 
-section > div{
+section>div {
   counter-increment: answers-list;
   /* counter-set: answers-list "A"; */
   border: 1px solid var(--blue-level-2);
   margin: 1rem 0px;
   display: grid;
-  grid-template-columns: 1fr 7fr;
+  grid-template-columns: 1.5fr 6.5fr;
   align-items: center;
   cursor: pointer;
+  background-color: var(--white-level-1);
+  border-radius: 4px;
 }
-section > div::before{
+
+section>div.correct {
+  border: 1px solid green;
+}
+
+section>div.incorrect {
+  border: 1px solid red;
+}
+
+section>div::before {
   content: counter(answers-list, upper-alpha);
   display: inline-block;
   background-color: var(--blue-level-2);
@@ -53,14 +66,21 @@ section > div::before{
   margin-right: 8px;
 }
 
-section > div:hover{
-  /* animation: answer-scaling 3s; */
-  /* transition: scale; */
-  scale: 1.01;
+section>div.correct::before {
+  background-color: green;
 }
+
+section>div.incorrect::before {
+  background-color: red;
+}
+
+/* section > div:hover{ */
+/* animation: answer-scaling 3s; */
+/* transition: scale; */
+/* scale: 1.05;
+} */
 /* 
 @keyframes answer-scaling {
   from{transform: scale(1);}
   to{transform: scale(1.05);}
 } */
-

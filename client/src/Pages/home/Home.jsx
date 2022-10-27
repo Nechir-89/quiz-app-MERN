@@ -12,6 +12,7 @@ export default function Home() {
   });
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [ans, setAns] = useState('');
 
   // because I don't allways know question id to handle next event
   // so I'm depending on array index
@@ -42,10 +43,14 @@ export default function Home() {
     size > index ? setIndex(prev => prev + 1) : setFinished(true);
   }
 
+  const checkAnswer = (ind) => {
+    questions.data[index].correct === ind ?
+      setAns("correct") : setAns("incorrect");
+  }
   // console.log(questions.ready);
   // console.log(questions.data);
   // console.log(finished);
-
+  console.log(ans)
   return (
     <>
       {
@@ -59,7 +64,10 @@ export default function Home() {
               <section>
                 {
                   questions.data[index].answers.map((answer, ind) =>
-                    <div className='answer' key={ind}>
+                    <div
+                      className={ans}
+                      key={ind}
+                      onClick={() => checkAnswer(ind)}>
                       {/* use counterReset to set list order A, B, C, D */}
                       {answer}
                     </div>
@@ -69,7 +77,7 @@ export default function Home() {
               <button
                 className='next-btn'
                 onClick={() => handleNext()}
-              >Next</button>
+              >Next Question</button>
             </main>
       }
     </>
