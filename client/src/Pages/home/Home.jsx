@@ -12,7 +12,7 @@ export default function Home() {
   });
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
-  const [ans, setAns] = useState('');
+  const [ans, setAns] = useState({ value: "", selectedAnswer: -1 });
 
   // because I don't allways know question id to handle next event
   // so I'm depending on array index
@@ -44,8 +44,9 @@ export default function Home() {
   }
 
   const checkAnswer = (ind) => {
+
     questions.data[index].correct === ind ?
-      setAns("correct") : setAns("incorrect");
+      setAns({ value: "correct", selectedAnswer: ind }) : setAns({ value: "incorrect", selectedAnswer: ind });
   }
   // console.log(questions.ready);
   // console.log(questions.data);
@@ -65,7 +66,7 @@ export default function Home() {
                 {
                   questions.data[index].answers.map((answer, ind) =>
                     <div
-                      className={ans}
+                      className={ind === ans.selectedAnswer ? ans.value : ""}
                       key={ind}
                       onClick={() => checkAnswer(ind)}>
                       {/* use counterReset to set list order A, B, C, D */}
