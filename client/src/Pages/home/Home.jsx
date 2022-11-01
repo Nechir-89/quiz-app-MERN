@@ -6,6 +6,9 @@ import axios from 'axios';
 import './home-style.css';
 
 export default function Home() {
+  //Todo: for next version we may need to divid state into two parts 
+  //Todo: one for {ready and data} state as they only needed when app loaded
+  //Todo: second {current and answer} for constantly being in changes as user interact
   const [questions, setQuestions] = useState({
     ready: false,
     data: null,
@@ -15,7 +18,6 @@ export default function Home() {
       result: ""
     }
   });
-  const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
 
   // because I don't allways know question id to handle next event
