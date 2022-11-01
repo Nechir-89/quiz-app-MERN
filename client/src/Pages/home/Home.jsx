@@ -8,11 +8,15 @@ import './home-style.css';
 export default function Home() {
   const [questions, setQuestions] = useState({
     ready: false,
-    data: null
+    data: null,
+    current: -1,
+    answer: {
+      pickedAnswer: -1,
+      result: ""
+    }
   });
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
-  const [ans, setAns] = useState({ value: "", selectedAnswer: -1 });
 
   // because I don't allways know question id to handle next event
   // so I'm depending on array index
@@ -23,10 +27,19 @@ export default function Home() {
 
   const fetchData = async () => {
     await axios.get('/api/css-questions')
-      .then(resp => setQuestions({ ready: true, data: resp.data }))
+      .then(resp => setQuestions((currentState) => ({
+        ...currentState,
+        ready: true,
+        data: resp.data,
+        current: 0
+      })))
       .catch(err => {
         console.log(err);
-        setQuestions({ ready: true, data: [] });
+        setQuestions((currentState) => ({
+          ...currentState,
+          ready: true,
+          data: []
+        }));
       })
   }
 
@@ -40,18 +53,41 @@ export default function Home() {
 
   const handleNext = () => {
     let size = questions.data.length - 1; // length of array
-    size > index ? setIndex(prev => prev + 1) : setFinished(true);
+    questions.current < size ?
+      setQuestions((currentState) => ({
+        ...currentState,
+        current: currentState.current + 1,
+        answer: {
+          pickedAnswer: -1,
+          result: ""
+        }
+      })) :
+      setFinished(true);
   }
 
-  const checkAnswer = (ind) => {
-
-    questions.data[index].correct === ind ?
-      setAns({ value: "correct", selectedAnswer: ind }) : setAns({ value: "incorrect", selectedAnswer: ind });
+  const checkAnswer = (selectedAnswer) => {
+    if (questions.answer.pickedAnswer === -1) {
+      questions.data[questions.current].correct === selectedAnswer ?
+        setQuestions((currentState) => ({
+          ...currentState,
+          answer: {
+            pickedAnswer: selectedAnswer,
+            result: "correct"
+          }
+        })) :
+        setQuestions((currentState) => ({
+          ...currentState,
+          answer: {
+            pickedAnswer: selectedAnswer,
+            result: "incorrect"
+          }
+        }))
+    }
   }
   // console.log(questions.ready);
   // console.log(questions.data);
   // console.log(finished);
-  console.log(ans)
+  // console.log(ans)
   return (
     <>
       {
@@ -59,14 +95,14 @@ export default function Home() {
           : questions.data.length === 0 ? <div>No questions available now!</div>
             : <main>
               <article>
-                <h3>Question {index + 1}/8</h3>
-                <p>{questions.data[index].question}</p>
+                <h3>Question {questions.current + 1}/8</h3>
+                <p>{questions.data[questions.current].question}</p>
               </article>
               <section>
                 {
-                  questions.data[index].answers.map((answer, ind) =>
+                  questions.data[questions.current].answers.map((answer, ind) =>
                     <div
-                      className={ind === ans.selectedAnswer ? ans.value : ""}
+                      className={ind === questions.answer.pickedAnswer ? questions.answer.result : ""}
                       key={ind}
                       onClick={() => checkAnswer(ind)}>
                       {/* use counterReset to set list order A, B, C, D */}
