@@ -110,7 +110,10 @@ export default function Home() {
                   )
                 }
               </section>
-              <div className={questions.answer.pickedAnswer === -1 ? 'nextBtnContainer hideNextBtn' : 'nextBtnContainer'}>
+              <div
+                className={
+                  questions.answer.pickedAnswer === -1 ?
+                    'nextBtnContainer hideNextBtn' : 'nextBtnContainer'}>
                 <button
                   className='next-btn'
                   onClick={() => handleNext()}

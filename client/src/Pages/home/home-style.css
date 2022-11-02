@@ -46,6 +46,7 @@ section>div {
   cursor: pointer;
   background-color: var(--white-level-1);
   border-radius: 4px;
+  line-height: 1.5;
 }
 
 section>div.correct {
@@ -76,6 +77,19 @@ section>div.incorrect::before {
 
 div.nextBtnContainer {
   display: block;
+  display: grid;
+  place-items: center;
+  background-color: black;
+  border-radius: 4px;
+}
+
+div.nextBtnContainer>button {
+  border: none;
+  /* height: 2rem; */
+  font-size: 1.2rem;
+  background-color: black;
+  color: var(--white-level-1);
+  line-height: 2;
 }
 
 div.hideNextBtn {
