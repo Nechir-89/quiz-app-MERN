@@ -13,6 +13,7 @@ export default function Home() {
     ready: false,
     data: null,
     current: -1,
+    correctAnswers: 0,
     answer: {
       pickedAnswer: -1,
       result: ""
@@ -69,6 +70,7 @@ export default function Home() {
       questions.data[questions.current].correct === selectedAnswer ?
         setQuestions((currentState) => ({
           ...currentState,
+          correctAnswers: currentState.correctAnswers + 1,
           answer: {
             pickedAnswer: selectedAnswer,
             result: "correct"
@@ -83,10 +85,7 @@ export default function Home() {
         }))
     }
   }
-  // console.log(questions.ready);
-  // console.log(questions.data);
-  // console.log(finished);
-  // console.log(ans)
+
   return (
     <>
       {
@@ -120,6 +119,13 @@ export default function Home() {
                 >Next Question</button>
               </div>
             </main>
+      }
+
+      {
+        // finished && "call model"
+        <div>
+          {finished && <>{questions.correctAnswers} / {questions.data.length}</>}
+        </div>
       }
     </>
   )
