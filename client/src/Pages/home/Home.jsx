@@ -22,11 +22,8 @@ export default function Home() {
 
   // because I don't allways know question id to handle next event
   // so I'm depending on array index
-
   // assigning a variable with let inside useEffect hook gets unexpected value
-
   // multiple updater inside useEffect hook gets unexpected state update
-
   const fetchData = async () => {
     await axios.get('/api/css-questions')
       .then(resp => setQuestions((currentState) => ({
@@ -113,10 +110,12 @@ export default function Home() {
                   )
                 }
               </section>
-              <button
-                className='next-btn'
-                onClick={() => handleNext()}
-              >Next Question</button>
+              <div className={questions.answer.pickedAnswer === -1 ? 'nextBtnContainer hideNextBtn' : 'nextBtnContainer'}>
+                <button
+                  className='next-btn'
+                  onClick={() => handleNext()}
+                >Next Question</button>
+              </div>
             </main>
       }
     </>
