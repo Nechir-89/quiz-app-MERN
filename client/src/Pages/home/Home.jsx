@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PopUp from '../../components/Popup';
 import './home-style.css';
 
 export default function Home() {
@@ -123,9 +124,11 @@ export default function Home() {
 
       {
         // finished && "call model"
-        <div>
-          {finished && <>{questions.correctAnswers} / {questions.data.length}</>}
-        </div>
+        finished ?
+          (<PopUp
+            time="end"
+            result={`You got ${questions.correctAnswers} questions out of ${questions.data.length}`} />)
+          : null
       }
     </>
   )

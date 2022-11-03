@@ -1,6 +1,6 @@
 const templateText = {
   start: {
-    title: "",
+    title: "Welcome to Quizz",
     par: [
       "This is a quiz application built using ReactJS.",
       "Currently it's loaded with CSS questions from W3Scools, but you can easily load any type of questions into it.",
