@@ -1,7 +1,7 @@
 import React from 'react'
 import './popup.css'
-export default function PopUp() {
-  return (
-    <div>PopUp</div>
-  )
+import templateText from './popup-texts';
+
+export default function PopUp(props) {
+  return props.time === "start" ? (<div>PopUp</div>): (<></>)
 }

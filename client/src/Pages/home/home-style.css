@@ -81,6 +81,7 @@ div.nextBtnContainer {
   place-items: center;
   background-color: black;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 div.nextBtnContainer>button {
