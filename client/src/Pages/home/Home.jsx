@@ -92,34 +92,37 @@ export default function Home() {
       {
         !questions.ready ? <div>Loading Questions...</div>
           : questions.data.length === 0 ? <div>No questions available now!</div>
-            : <main>
-              <article>
-                <h3>Question {questions.current + 1}/8</h3>
-                <p>{questions.data[questions.current].question}</p>
-              </article>
-              <section>
-                {
-                  questions.data[questions.current].answers.map((answer, ind) =>
-                    <div
-                      className={ind === questions.answer.pickedAnswer ? questions.answer.result : ""}
-                      key={ind}
-                      onClick={() => checkAnswer(ind)}>
-                      {/* use counterReset to set list order A, B, C, D */}
-                      {answer}
-                    </div>
-                  )
-                }
-              </section>
-              <div
-                className={
-                  questions.answer.pickedAnswer === -1 ?
-                    'nextBtnContainer hideNextBtn' : 'nextBtnContainer'}>
-                <button
-                  className='next-btn'
-                  onClick={() => handleNext()}
-                >Next Question</button>
-              </div>
-            </main>
+            : <>
+              {questions.current === 0 ? <PopUp time="start" /> : null}
+              <main>
+                <article>
+                  <h3>Question {questions.current + 1}/8</h3>
+                  <p>{questions.data[questions.current].question}</p>
+                </article>
+                <section>
+                  {
+                    questions.data[questions.current].answers.map((answer, ind) =>
+                      <div
+                        className={ind === questions.answer.pickedAnswer ? questions.answer.result : ""}
+                        key={ind}
+                        onClick={() => checkAnswer(ind)}>
+                        {/* use counterReset to set list order A, B, C, D */}
+                        {answer}
+                      </div>
+                    )
+                  }
+                </section>
+                <div
+                  className={
+                    questions.answer.pickedAnswer === -1 ?
+                      'nextBtnContainer hideNextBtn' : 'nextBtnContainer'}>
+                  <button
+                    className='next-btn'
+                    onClick={() => handleNext()}
+                  >Next Question</button>
+                </div>
+              </main>
+            </>
       }
 
       {
