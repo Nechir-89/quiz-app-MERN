@@ -88,7 +88,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className='home'>
       {
         !questions.ready ? <div>Loading Questions...</div>
           : questions.data.length === 0 ? <div>No questions available now!</div>
@@ -133,6 +133,6 @@ export default function Home() {
             result={`You got ${questions.correctAnswers} questions out of ${questions.data.length}`} />)
           : null
       }
-    </>
+    </div>
   )
 }

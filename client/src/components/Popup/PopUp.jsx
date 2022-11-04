@@ -4,7 +4,7 @@ import templateText from './popup-texts';
 
 export default function PopUp(props) {
   return props.time === "start" ? (
-    <article>
+    <article className='popup'>
       <h3>{templateText.start.title}</h3>
       <section>
         {
