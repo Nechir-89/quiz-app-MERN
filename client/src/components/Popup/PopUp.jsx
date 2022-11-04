@@ -1,10 +1,12 @@
 import React from 'react'
 import './popup.css'
 import templateText from './popup-texts';
+import { useState } from 'react';
 
 export default function PopUp(props) {
+  const [className, setClassName] = useState('popup-container')
   return props.time === "start" ? (
-    <div className='popup-container'>
+    <div className={className}>
       <article className='popup'>
         <h3>{templateText.start.title}</h3>
         <section>
@@ -14,7 +16,7 @@ export default function PopUp(props) {
             )
           }
         </section>
-        <button>{templateText.start.btnText}</button>
+        <button onClick={() => setClassName("hide-popup-component")}>{templateText.start.btnText}</button>
       </article>
     </div>
   )
