@@ -1,4 +1,3 @@
-
 div.home {
   position: relative;
 }
@@ -7,7 +6,7 @@ main {
   margin: 2rem 1rem;
 }
 
-article {
+main>article {
   background-color: var(--blue-level-1);
   display: flex;
   flex-direction: column;
@@ -15,7 +14,7 @@ article {
   border-radius: 4px;
 }
 
-article>h3 {
+main>article>h3 {
   background-color: var(--white-level-1);
   display: inline-block;
   padding: 4px 8px;
@@ -23,7 +22,7 @@ article>h3 {
   border-radius: 4px;
 }
 
-article>p {
+main>article>p {
   color: var(--white-level-1);
   text-align: center;
   margin-top: 0px;
@@ -34,13 +33,13 @@ article>p {
 }
 
 
-section {
+main>section.answers {
   counter-reset: answers-list;
   /* display: flex; */
   /* flex-direction: column; */
 }
 
-section>div {
+main>section.answers>div {
   counter-increment: answers-list;
   /* counter-set: answers-list "A"; */
   border: 1px solid var(--blue-level-2);
@@ -54,15 +53,15 @@ section>div {
   line-height: 1.5;
 }
 
-section>div.correct {
+main>section.answers>div.correct {
   border: 1px solid green;
 }
 
-section>div.incorrect {
+main>section.answers>div.incorrect {
   border: 1px solid red;
 }
 
-section>div::before {
+main>section.answers>div::before {
   content: counter(answers-list, upper-alpha);
   display: inline-block;
   background-color: var(--blue-level-2);
@@ -72,11 +71,11 @@ section>div::before {
   margin-right: 8px;
 }
 
-section>div.correct::before {
+main>section.answers>div.correct::before {
   background-color: green;
 }
 
-section>div.incorrect::before {
+main>section.answers>div.incorrect::before {
   background-color: red;
 }
 

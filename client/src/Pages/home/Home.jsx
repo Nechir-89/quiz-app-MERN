@@ -99,7 +99,7 @@ export default function Home() {
                   <h3>Question {questions.current + 1}/8</h3>
                   <p>{questions.data[questions.current].question}</p>
                 </article>
-                <section>
+                <section className='answers'>
                   {
                     questions.data[questions.current].answers.map((answer, ind) =>
                       <div

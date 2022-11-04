@@ -2,7 +2,7 @@ const templateText = {
   start: {
     title: "Welcome to Quizz",
     par: [
-      "This is a quiz application built in ReactJS, ExpressJS in TypeScript, and NoSQL MongoDB.",
+      "This is a quiz application built in MERN stack!",
       "It will dynamically load the question->answers pair and upload them into the components."
     ],
     btnText: "start the quiz"
