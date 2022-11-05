@@ -22,8 +22,8 @@ export default function PopUp(props) {
   )
     :
     (
-      <div className='popup-container'>
-        <article>
+      <div className={className}>
+        <article className='popup'>
           <h3>{templateText.end.title}</h3>
           <section>
             {
@@ -33,7 +33,12 @@ export default function PopUp(props) {
             }
             <p>{props.result}</p>
           </section>
-          <button>{templateText.end.btnText}</button>
+          <button
+            onClick={() => window.location.reload(true)}
+          // reload(false) method takes an optional parameter which by default is set to false. 
+          // If set to true, the browser will do a complete page refresh from the server and 
+          // not from the cached version of the page.
+          >{templateText.end.btnText}</button>
         </article>
       </div>
     )
