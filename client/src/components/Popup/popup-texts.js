@@ -3,7 +3,7 @@ const templateText = {
     title: "Welcome to Quizz",
     par: [
       "This is a quiz application built in MERN stack!",
-      "It will dynamically load the question->answers pair and upload them into the components."
+      "It will dynamically load the question-answers pair and upload them into the components."
     ],
     btnText: "start the quiz"
   },
