@@ -1,9 +1,12 @@
 div.home {
+  display: grid;
+  place-items: center;
   position: relative;
 }
 
 main {
-  margin: 2rem 1rem;
+  width: calc(100% - 2rem);
+  margin-top: 3rem;
 }
 
 main>article {
@@ -84,7 +87,7 @@ div.nextBtnContainer {
   display: grid;
   place-items: center;
   background-color: black;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 div.nextBtnContainer>button {
@@ -95,11 +98,46 @@ div.nextBtnContainer>button {
   background-color: black;
   color: var(--white-level-1);
   line-height: 2;
+  border-radius: 8px;
 }
 
 div.hideNextBtn {
   display: none;
 }
+
+/* break  Points */
+/* 1200 */
+@media screen and (min-width: 1200px) {
+
+  main {
+    width: 1080px;
+    margin-top: 5rem;
+  }
+
+  main>section.answers {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+
+  div.nextBtnContainer>button {
+    line-height: 3;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main>section.answers {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+
 
 /* section > div:hover{ */
 /* animation: answer-scaling 3s; */
