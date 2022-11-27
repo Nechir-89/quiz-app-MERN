@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.ts",
-    "build": "npm run build app.ts"
+    "start": "ts-node app.ts",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "Neck",
