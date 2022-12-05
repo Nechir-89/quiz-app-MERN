@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 // import { getAllData } from "./data";
-import router from "./routes/index";
+const router = require("./Routes/index.ts");
 import cors from 'cors';
 import { corsOptions } from "./config/corsOptions";
 import dbConnect from "./config/dbConnect";
