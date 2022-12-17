@@ -1,12 +1,12 @@
 import express, { Express } from "express";
+import mongoose from "mongoose";
+import cors from 'cors';
 // import { getAllData } from "./data";
 const router = require("./Routes/index.ts");
-import cors from 'cors';
-import { corsOptions } from "./config/corsOptions";
-import dbConnect from "./config/dbConnect";
-import mongoose from "mongoose";
-require('dotenv').config();
+const { corsOptions } = require ("./config/corsOptions");
+const dbConnect = require("./config/dbConnect");
 
+require('dotenv').config();
 const app: Express = express();
 // connect to monogoDB
 dbConnect();
