@@ -6,7 +6,9 @@ import router from "./Routes/index.js";
 import { corsOptions } from "./config/corsOptions.js";
 import dbConnect from "./config/dbConnect.js";
 // import { DotenvConfigOptions } from "dotenv";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+// require('dotenv').config();
 const app: Express = express();
 // connect to monogoDB
 dbConnect();
