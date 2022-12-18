@@ -1,5 +1,5 @@
 import { Router } from "express";
-import cssQuestionRouter from './css-questions-router.js'
+import cssQuestionRouter from './css-questions-router'
 // import userRouter from './users-router'
 // import htmlQuestionRouter from './htmlquetions-router'
 

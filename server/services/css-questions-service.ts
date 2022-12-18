@@ -1,4 +1,4 @@
-import cssQuestions from "../model/cssquestions.model.js";
+import cssQuestions from "../model/cssquestions.model";
 // import { question } from '../types/cssTypes';
 
 const getCssQuestions = async () => {
