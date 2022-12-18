@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Question } from "../types/cssTypes";
+import { Question } from "../types/cssTypes.js";
 const { Schema } = mongoose;
 
 

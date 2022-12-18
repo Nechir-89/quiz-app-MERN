@@ -1,6 +1,6 @@
 import { RequestHandler } from "express"
-import { Question } from "../types/cssTypes"
-import { getCssQuestions } from "../services/css-questions-service";
+import { Question } from "../types/cssTypes.js"
+import { getCssQuestions } from "../services/css-questions-service.js";
 import mongoose from "mongoose";
 
 const getAllQuetions: RequestHandler<
