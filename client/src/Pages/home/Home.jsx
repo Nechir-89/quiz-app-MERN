@@ -27,7 +27,7 @@ export default function Home() {
   // assigning a variable with let inside useEffect hook gets unexpected value
   // multiple updater inside useEffect hook gets unexpected state update
   const fetchData = async () => {
-    await axios.get('/api/css-questions')
+    await axios.get('https://quiz-app-7is7.onrender.com/api/css-questions')
       .then(resp => setQuestions((currentState) => ({
         ...currentState,
         ready: true,
