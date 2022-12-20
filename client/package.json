@@ -37,5 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://quiz-app-7is7.onrender.com/"
+  "proxy": "https://quiz-app-7is7.onrender.com/",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
