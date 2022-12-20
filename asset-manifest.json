@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/quiz-app-MERN/client/static/css/main.a8bce84f.css",
+    "main.js": "/quiz-app-MERN/client/static/js/main.4846c3ca.js",
+    "static/js/496.7623442f.chunk.js": "/quiz-app-MERN/client/static/js/496.7623442f.chunk.js",
+    "index.html": "/quiz-app-MERN/client/index.html",
+    "main.a8bce84f.css.map": "/quiz-app-MERN/client/static/css/main.a8bce84f.css.map",
+    "main.4846c3ca.js.map": "/quiz-app-MERN/client/static/js/main.4846c3ca.js.map",
+    "496.7623442f.chunk.js.map": "/quiz-app-MERN/client/static/js/496.7623442f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a8bce84f.css",
+    "static/js/main.4846c3ca.js"
+  ]
+}
