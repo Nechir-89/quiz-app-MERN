@@ -1,8 +1,8 @@
 import React from 'react'
 import './auth-style.css'
 
-export default function Auth() {
+export default function Login() {
   return (
-    <div>Auth</div>
+    <div>Login</div>
   );
 }

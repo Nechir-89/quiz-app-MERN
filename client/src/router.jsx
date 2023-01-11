@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import App from './App';
 import Home from './Pages/home';
 import NotFound from './NotFound';
-import Auth from './Pages/auth';
+import Login from './Pages/login';
 
 export default function AppRouter() {
   return (
@@ -12,7 +12,7 @@ export default function AppRouter() {
         {/* home page */}
         <Route index element={<Home />} />
         {/* login */}
-        <Route path='login' element={<Auth/>} />
+        <Route path='login' element={<Login/>} />
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
       </Route>
