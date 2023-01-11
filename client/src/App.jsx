@@ -1,12 +1,13 @@
 import './App.css';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   // console.log(process.env.NODE_ENV);
   return (
     <>
       <header className="App">
-        <a href="/login">Login</a>
+        {/* <a href="/login">Login</a> */}
+        <Link to='/quiz-app-MERN/login'>Login</Link>
       </header>
       <Outlet />
       <footer>
