@@ -6,6 +6,7 @@ import NotFound from './NotFound';
 export default function AppRouter() {
   return (
     <Routes>
+      {/* / route */}
       <Route path="/quiz-app-MERN/" element={<App />}>
         <Route index element={<Home />} />
         {/* 404 page */}
