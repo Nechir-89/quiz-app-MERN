@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 
 function App() {
   // console.log(process.env.NODE_ENV);
+
+  const [user, setUser] = useState(null);
+
   function handleCredentialResponse(response) {
-    console.log(response.credential);
+    
+    const usr = jwt_decode(response.credential);
+    
+    
   }
   useEffect(() => {
     window.google.accounts.id.initialize({
@@ -15,6 +22,8 @@ function App() {
 
     const signinEle = document.getElementById('google_signin_btn_container');
     window.google.accounts.id.renderButton(signinEle, { theme: 'outline' });
+    window.google.accounts.id.prompt();
+
   }, []);
 
 
