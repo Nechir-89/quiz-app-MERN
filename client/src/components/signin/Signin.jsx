@@ -1,11 +1,11 @@
 import React from 'react'
-import './login.css'
+import './signin.css'
 
-export default function Login() {
+export default function Signin() {
   // useEffect(()=>{
   //   google.acc
   // }, [])
   return (
-    <div>Login</div>
+    <div>Signin</div>
   );
 }

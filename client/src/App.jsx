@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { Outlet } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import './App.css';
 
 // global state
 // displaying google sign in after signing out successfully
@@ -32,7 +32,7 @@ function App() {
     window.google.accounts.id.renderButton(signinEle, {
       theme: 'outline', // filled_blue, filled_black
       type: 'standard', // icon
-      text: 'signin', // signin_with, signup_with, continue_with
+      text: 'use', // signin_with, signup_with, continue_with
       size: 'medium', // default: large, small, medium
       shape: 'pill', // default: rectangular, circle, square
       logo_alignment: 'center', // default: left, center
@@ -43,9 +43,6 @@ function App() {
     // window.google.accounts.id.prompt();
 
   }, []);
-
-
-
 
   return (
     <>
