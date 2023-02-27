@@ -2,13 +2,15 @@ import jwtDecode from 'jwt-decode';
 import React, { useEffect } from 'react'
 
 export default function SignInWithGoogle() {
+
   function handleCredentialResponse(response) {
     const signedUser = jwtDecode(response.credential);
     console.log(signedUser);
   }
+
   useEffect(() => {
     window.google.accounts.id.initialize({
-      client_id: '33005118597-p6k0cstkacrfjf2etue4euodlgfs5k63.apps.googleusercontent.com',
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
       callback: handleCredentialResponse
     })
     const signInElement = document.getElementById('sign_in_div');
