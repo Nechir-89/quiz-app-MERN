@@ -32,7 +32,7 @@ function App() {
     window.google.accounts.id.renderButton(signinEle, {
       theme: 'outline', // filled_blue, filled_black
       type: 'standard', // icon
-      text: 'use', // signin_with, signup_with, continue_with
+      text: 'signup_with', // signin_with, signup_with, continue_with, use
       size: 'medium', // default: large, small, medium
       shape: 'pill', // default: rectangular, circle, square
       logo_alignment: 'center', // default: left, center
