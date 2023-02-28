@@ -1,11 +1,13 @@
+import React, { useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
-import React, { useEffect } from 'react'
 
 export default function SignInWithGoogle() {
 
   function handleCredentialResponse(response) {
     const signedUser = jwtDecode(response.credential);
     console.log(signedUser);
+    // make request to backend if it is successfull then 
+    // update state and redirect to the targeted page
   }
 
   useEffect(() => {
