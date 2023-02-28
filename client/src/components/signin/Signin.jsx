@@ -6,6 +6,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import SignInWithGoogle from '../sign_in_with_google/SignInWithGoogle';
+import { object, string } from 'yup'
 import './signin.css';
 
 
@@ -13,6 +14,15 @@ export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik({
     initialValues: { email: '', password: '' },
+    validationSchema: object({
+      email: string()
+        .email('Please input valid email!')
+        .required('Email required'),
+      password: string()
+        .max(32, 'Password must be less than 32 charactors!')
+        .min(8, 'Password must be 8 charactores or more')
+        .required('Password rquired')
+    }),
     onSubmit: (values) => {
       console.log(values)
       // we need to make a request to backend
@@ -21,7 +31,7 @@ export default function Signin() {
   })
   return (
     <section>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} autoComplete='off'>
         <Box sx={{ display: 'flex', alignItems: 'flex-end', m: 1 }}>
           <AccountCircleIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
           <TextField
@@ -34,6 +44,8 @@ export default function Signin() {
             onChange={formik.handleChange}
             value={formik.values.email}
             onBlur={formik.handleBlur}
+            error={Boolean(formik.touched.email && formik.errors.email)}
+            helperText={Boolean(formik.touched.email && formik.errors.email) && formik.errors.email}
           />
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end', m: 1 }}>
@@ -47,6 +59,7 @@ export default function Signin() {
               onChange={formik.handleChange}
               value={formik.values.password}
               onBlur={formik.handleBlur}
+              error={Boolean(formik.touched.password && formik.errors.password)}
               endAdornment={
                 <InputAdornment position='end'>
                   <IconButton onClick={() => setShowPassword(prev => !prev)}>
@@ -56,6 +69,9 @@ export default function Signin() {
               }
             />
           </FormControl>
+          <Typography color={'red'} variant='body2' component='div'>
+            {Boolean(formik.touched.password && formik.errors.password) && formik.errors.password}
+          </Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'flex-end', m: 2 }}>
           <Button type='submit' variant='outlined' size='small'>Sign In</Button>
