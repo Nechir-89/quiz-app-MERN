@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
-import jwtDecode from 'jwt-decode';
+import { sign_in_with_google } from '../../services/user_service';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignInWithGoogle() {
 
+  const navigate = useNavigate();
+
   function handleCredentialResponse(response) {
-    const signedUser = jwtDecode(response.credential);
-    console.log(signedUser);
     // make request to backend if it is successfull then 
     // update state and redirect to the targeted page
+    const res = sign_in_with_google(response.credential);
+    res && navigate('/quiz-app-MERN/');
+    
   }
 
   useEffect(() => {
