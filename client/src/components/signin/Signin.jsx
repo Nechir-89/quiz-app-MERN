@@ -7,11 +7,16 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import SignInWithGoogle from '../sign_in_with_google/SignInWithGoogle';
 import { object, string } from 'yup'
+import { sign_in } from '../../services/user_service';
+import { useNavigate } from 'react-router-dom';
 import './signin.css';
 
-
 export default function Signin() {
+  
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+
   const formik = useFormik({
     initialValues: { email: '', password: '' },
     validationSchema: object({
@@ -27,6 +32,8 @@ export default function Signin() {
       console.log(values)
       // we need to make a request to backend
       // if it is successfull then update state and redirect to targeted page
+      const res = sign_in(values);
+      res && navigate('/quiz-app-MERN/');
     }
   })
   return (
@@ -68,8 +75,10 @@ export default function Signin() {
                 </InputAdornment>
               }
             />
+
+
           </FormControl>
-          <Typography color={'red'} variant='body2' component='div'>
+        <Typography color={'red'} variant='body2' component='div'>
             {Boolean(formik.touched.password && formik.errors.password) && formik.errors.password}
           </Typography>
         </Box>

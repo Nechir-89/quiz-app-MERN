@@ -3,6 +3,7 @@ import App from './App';
 import Home from './Pages/home';
 import NotFound from './NotFound';
 import Auth from './Pages/auth';
+import Profile from './Pages/profile';
 
 export default function AppRouter() {
   return (
@@ -12,7 +13,9 @@ export default function AppRouter() {
         {/* home page */}
         <Route index element={<Home />} />
         {/* login */}
-        <Route path='auth' element={<Auth/>} />
+        <Route path='auth' element={<Auth />} />
+        {/* Profile */}
+        <Route path='profile' element={<Profile />} />
         {/* 404 page */}
         <Route path='*' element={<NotFound />} />
       </Route>
