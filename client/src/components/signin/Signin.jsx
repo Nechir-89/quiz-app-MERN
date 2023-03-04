@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// Signin component contains both (signin with email and signin with google)
+import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import { Input, InputLabel, FormControl, Box, TextField, InputAdornment, IconButton, Button, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -9,13 +10,14 @@ import SignInWithGoogle from '../sign_in_with_google/SignInWithGoogle';
 import { object, string } from 'yup'
 import { sign_in } from '../../services/user_service';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../contexts/user_context';
 import './signin.css';
 
 export default function Signin() {
-  
+
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
+  const { signIn } = useContext(UserContext);
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -33,7 +35,12 @@ export default function Signin() {
       // we need to make a request to backend
       // if it is successfull then update state and redirect to targeted page
       const res = sign_in(values);
-      res && navigate('/quiz-app-MERN/');
+      // update context
+      if (res) {
+        signIn(values);
+        // redirect user to main page
+        navigate('/quiz-app-MERN/');
+      }
     }
   })
   return (
@@ -78,7 +85,7 @@ export default function Signin() {
 
 
           </FormControl>
-        <Typography color={'red'} variant='body2' component='div'>
+          <Typography color={'red'} variant='body2' component='div'>
             {Boolean(formik.touched.password && formik.errors.password) && formik.errors.password}
           </Typography>
         </Box>
