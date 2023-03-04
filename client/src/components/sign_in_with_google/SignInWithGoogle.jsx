@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { sign_in_with_google } from '../../services/user_service';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../contexts/user_context';
 
 export default function SignInWithGoogle() {
 
   const navigate = useNavigate();
-
+  const {signIn} = useContext(UserContext)
   function handleCredentialResponse(response) {
     // make request to backend if it is successfull then 
     // update state and redirect to the targeted page
     const res = sign_in_with_google(response.credential);
-    res && navigate('/quiz-app-MERN/');
-    
+  
+    if(res){
+      signIn(res);
+      navigate('/quiz-app-MERN/');
+    }
   }
 
   useEffect(() => {
